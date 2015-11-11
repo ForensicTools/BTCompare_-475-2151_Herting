@@ -49,13 +49,13 @@ module BTCompare
 
 			@result = Result.new self
 
-			@result.same_piece_count = ( tf1.piece_count == tf2.piece_count )
+			@result.same_piece_count = ( @file_1.piece_count == @file_2.piece_count )
 
 
 			difference_ids = []
-			shortest = [ tf1.piece_count, tf2.piece_count ].sort.first
+			shortest = [ @file_1.piece_count, @file_2.piece_count ].sort.first
 			shortest.times do |i|
-				unless tf1.individual_pieces[i] == tf2.individual_pieces[i] then
+				unless @file_1.individual_pieces[i] == @file_2.individual_pieces[i] then
 					difference_ids.push i
 				end
 			end
