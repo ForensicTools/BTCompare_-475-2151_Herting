@@ -49,7 +49,7 @@ module BTCompare
 
 			@result = Result.new self
 
-
+			@result.same_piece_count = ( tf1.piece_count == tf2.piece_count )
 			
 
 		end
