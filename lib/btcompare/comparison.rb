@@ -60,8 +60,8 @@ module BTCompare
 				end
 			end
 			@result.difference_ids = difference_ids
-			
 
+			return @result
 		end
 
 	end
