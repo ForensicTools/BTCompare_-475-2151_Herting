@@ -12,6 +12,7 @@ module BTCompare
 
 			@file_1 = nil
 			@file_2 = nil
+			@result = nil
 
 
 			case tf1
@@ -36,6 +37,18 @@ module BTCompare
 			else
 				raise "tf2 is wrong type of file"
 			end
+		end
+
+
+		# Runs the comparison
+		# @return [Result] The result of the comparison
+		def result
+			unless @result == nil then
+				return @result
+			end
+
+			
+
 		end
 
 	end
