@@ -47,6 +47,9 @@ module BTCompare
 				return @result
 			end
 
+			@result = Result.new self
+
+
 			
 
 		end
