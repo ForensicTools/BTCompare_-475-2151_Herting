@@ -7,7 +7,7 @@ module BTCompare
 		# Creates a new comparison
 		# @param tf1 [TorrentFile,String] First file for comparison
 		# @param tf2 [TorrentFile,String] Second file for comparison
-		# @raises 
+		# @raise [RuntimeError] if argument class is wrong
 		def initialize tf1, tf2
 
 			@file_1 = nil
