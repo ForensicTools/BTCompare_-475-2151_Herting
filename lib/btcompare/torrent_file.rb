@@ -29,7 +29,7 @@ module BTCompare
 				return @individual_peices
 			end
 			
-			@individual_peices = @data['info']['pieces'].scan /.{1,20}/m
+			@individual_peices = @data['info']['pieces'].unpack( "H*" ).first.scan /.{40}/m
 
 			return @individual_peices 
 		end
