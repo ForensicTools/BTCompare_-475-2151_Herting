@@ -17,21 +17,21 @@ module BTCompare
 			
 			@data = BEncode::load(File.open( filename, 'r' ))
 
-			@individual_peices = nil
+			@individual_pieces = nil
 		end
 
-		# Generates individual peices if not alreaded found.
+		# Generates individual pieces if not alreaded found.
 		# Caches data once created. Immediately returns array
 		# if already generated.
 		# @return array of individual SHA1 hashes from torrent file
-		def individual_peices
-			unless @individual_peices == nil then
-				return @individual_peices
+		def individual_pieces
+			unless @individual_pieces == nil then
+				return @individual_pieces
 			end
 			
-			@individual_peices = @data['info']['pieces'].unpack( "H*" ).first.scan /.{40}/m
+			@individual_pieces = @data['info']['pieces'].unpack( "H*" ).first.scan /.{40}/m
 
-			return @individual_peices 
+			return @individual_pieces 
 		end
 
 
