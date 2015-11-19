@@ -51,6 +51,24 @@ module BTCompare
 		end
 
 
+		# Generate a diff
+		# @param type [Symbol] Type of diff to generate
+		# @raise [InvalidDiffType] If the diff type is invalid for
+		#   the givien result
+		# @return [Diff::Diff] The resulting diff
+		def diff type
+			unless diff_types.includes? type then
+				raise InvalidDiffType
+			end
+
+			case type
+			when :direct
+				return Diff::Direct.new self, @parent.file_1, @parent.file_2
+
+			end
+		end
+
+
 		# Gets the byte offset for the pieces that are different.
 		# @return [Hash<Integer,Integer>] Piece id => offset within file
 		def offsets
