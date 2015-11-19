@@ -1,6 +1,8 @@
 
 
 module BTCompare
+
+	# Actor that runs a comparison on two different TorrentFiles.
 	class Comparison
 
 
