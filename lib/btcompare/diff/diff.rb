@@ -7,7 +7,7 @@ module BTCompare
 		class Diff
 
 			# [String] Working directory for this Diff
-			attr_reader @path
+			attr_reader :path
 
 
 			# Parent constructor. Causes a workspace to be created.
