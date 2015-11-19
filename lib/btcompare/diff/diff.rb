@@ -52,6 +52,63 @@ module BTCompare
 				block = in_file.read length
 				length == out_file.write( block )
 			end
+
+
+			# Hex dumps a binary file
+			# @param in_file [String,File] File the data is coming from
+			# @param out_file [String,File] File the hexdump is being written to
+			# @param metadata [Hash] Info for user comfort
+			# @raise [UnacceptableArgType] If an arg type is not acceptable 
+			def hexdump in_file, out_file, metadata=nil
+				# Opening in_file
+				case in_file
+				when String
+					in_file = File.open in_file, 'rb'
+				when File
+				else
+					raise UnacceptableArgType
+				end
+
+				# Opening out_file
+				case out_file
+				when String
+					out_file = File.open out_file, 'w'
+				when File
+				else
+					raise UnacceptableArgType
+				end
+
+				# Write out metadata
+				unless metadata == nil then
+					metadata.each do |key, value|
+						out_file.puts "#{key}: #{value}"
+					end
+
+					out_file.puts
+					out_file.puts "-----------------"
+					out_file.puts
+				end
+
+				# Hexdump
+				in_file.rewind
+				LINE_SIZE = 16
+				internal_offset = 0
+				until in_file.eof? do
+					word = in_file.read LINE_SIZE
+
+					hex = word.unpack "4H4H4H4H4H4H4H4H"
+
+					ascii = word.gsub( /[[:cntrl:]]/ , '.' )
+
+					line = [ internal_offset.to_s(16), hex, ascii ].flatten
+					out_file.printf "%7s: %4s %4s %4s %4s %4s %4s %4s %4s  %16s\n", line
+				end
+
+
+				# Closing files
+				in_file.close
+				out_file.close
+			end
 		end
 	end
 end
