@@ -56,6 +56,14 @@ module BTCompare
 		def invalidate_cache
 			@individual_pieces = nil
 		end
+
+
+		# Checks to see if contains is found
+		# in current directory.
+		# @return [Boolean] True if found.
+		def contains_found?
+			File.exist? @contains
+		end
 	end
 end
 
