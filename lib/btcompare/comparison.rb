@@ -5,6 +5,13 @@ module BTCompare
 	# Actor that runs a comparison on two different TorrentFiles.
 	class Comparison
 
+		# [TorrentFile] File 1 of the comparison
+		attr_reader :file_1
+
+
+		# [TorrentFile] File 2 of the comparison
+		attr_reader :file_2
+
 
 		# Creates a new comparison
 		# @param tf1 [TorrentFile,String] First file for comparison
