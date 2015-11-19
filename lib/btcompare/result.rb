@@ -39,6 +39,10 @@ module BTCompare
 		def diff_types
 			available = []
 
+			if @parent.file_1.contains_found? and @parent.file_2.contains_found? then
+				available.push :direct
+			end
+
 
 			if available.empty? then
 				available.push :notAvailable
