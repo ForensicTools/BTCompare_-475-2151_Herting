@@ -7,6 +7,7 @@ module BTCompare
 		class Direct < Diff
 
 			# Creates a new Direct diff
+			# @param parent [BTCompare::Result] Parent of the diff
 			def initialize parent
 				super parent
 
