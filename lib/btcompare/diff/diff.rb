@@ -34,6 +34,18 @@ module BTCompare
 				return path
 			end
 
+
+			# Carves out a chunk of a file.
+			# @param in_file [File] File data is coming from
+			# @param offset [Integer] Starting offset
+			# @param length [Integer] Length of chunk
+			# @param out_file [File] File data is going to
+			# @return [Boolean] If length == number of bytes written
+			def carve in_file, offset, length, out_file
+				in_file.seek offset, :SET
+				block = in_file.read length
+				length == out_file.write( block )
+			end
 		end
 	end
 end
