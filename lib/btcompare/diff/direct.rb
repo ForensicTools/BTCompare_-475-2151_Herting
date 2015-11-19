@@ -71,6 +71,22 @@ module BTCompare
 				log.debug "Closing file 2"
 				source_2.close
 
+
+				log.debug "Processing hexdump"
+
+				log.debug "Making Directories"
+				Dir.mkdir( File.join( @path, "1", "hex" ))
+				Dir.mkdir( File.join( @path, "2", "hex" ))
+			
+				log.debug "Converting to hexdump"	
+				bin_files.each do |bin_file|
+					hex_file = bin_file.split( File::SEPARATOR )[2] = "hex"
+					hex_file = File.join(hex_file)
+
+					hexdump bin_file, hex_file
+				end
+				log.debug "Hexdump finished"
+
 				log.info "Direct diff processing finished" 
 			end
 		end
