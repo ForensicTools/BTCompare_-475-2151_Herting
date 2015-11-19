@@ -96,7 +96,7 @@ module BTCompare
 				until in_file.eof? do
 					word = in_file.read line_size
 
-					hex = word.unpack "4H4H4H4H4H4H4H4H"
+					hex = word.unpack "H4" * ( line_size / 2 )
 
 					ascii = word.gsub( /[[:cntrl:]]/ , '.' )
 
