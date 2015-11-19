@@ -19,9 +19,17 @@ module BTCompare
 
 			# Processes the carving of the data
 			def process
-				@parent.offsets do |id, offset|
+				source_1 = File.open @torrent_file_1.contains, 'r'
+				source_2 = File.open @torrent_file_2.contains, 'r'
 
+				@parent.offsets do |id, offset|
+					File.open( File.join( @path, "1", id.string ), 'w' ) do |file|
+
+					end
 				end
+
+				source_1.close
+				source_2.close
 			end
 		end
 	end
