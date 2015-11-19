@@ -13,6 +13,7 @@ module BTCompare
 			def initialize parent, torrent_file_1, torrent_file_2
 				super parent, torrent_file_1, torrent_file_2
 
+				process
 			end
 
 			private
