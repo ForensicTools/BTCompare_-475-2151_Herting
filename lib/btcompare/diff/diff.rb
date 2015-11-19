@@ -6,6 +6,10 @@ module BTCompare
 		# Parent class for Diff objects
 		class Diff
 
+			# [String] Working directory for this Diff
+			attr_reader @path
+
+
 			private
 
 			# Creates a temporary directory for storing diffs
