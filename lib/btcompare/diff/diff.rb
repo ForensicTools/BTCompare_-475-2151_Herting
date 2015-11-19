@@ -10,6 +10,12 @@ module BTCompare
 			attr_reader @path
 
 
+			# Parent constructor. Causes a workspace to be created.
+			def initialize
+				@path = create_tmp_directory
+			end
+
+
 			private
 
 			# Creates a temporary directory for storing diffs
