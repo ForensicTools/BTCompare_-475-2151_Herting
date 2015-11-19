@@ -1,5 +1,5 @@
 Gemfile.lock
-test.rb
+test*
 example*
 .yardoc/
 doc/
