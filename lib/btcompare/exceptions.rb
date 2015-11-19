@@ -7,5 +7,10 @@ module BTCompare
 	class InvalidDiffType < Exception
 	end
 
+
+	# Exception thrown when an unacceptable arg type has
+	# been handed to a method
+	class UnacceptableArgType < Exception
+	end
 end
 
