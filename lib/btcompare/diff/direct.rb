@@ -19,12 +19,29 @@ module BTCompare
 
 			# Processes the carving of the data
 			def process
-				source_1 = File.open @torrent_file_1.contains, 'r'
-				source_2 = File.open @torrent_file_2.contains, 'r'
+				source_1 = File.open @torrent_file_1.contains, 'rb'
+				source_2 = File.open @torrent_file_2.contains, 'rb'
+				
+				Dir.mkdir( File.join( @path, '1' ))
+				Dir.mkdir( File.join( @path, '1', 'bin' ))
+				Dir.mkdir( File.join( @path, '2' ))
+				Dir.mkdir( File.join( @path, '2', 'bin' ))
+
+				bin_files = []
 
 				@parent.offsets do |id, offset|
-					File.open( File.join( @path, "1", id.string ), 'w' ) do |file|
+					chunk_path = File.join( @path, "1", "bin", id.to_s )
+					@created_files.push chunk_path
+					bin_files.push chunk_path
+					File.open( chunk_path, 'w' ) do |file|
+						carve source_1, offset, @torrent_file_1.piece_length, file
+					end
 
+					chunk_path = File.join( @path, "2", "bin", id.to_s )
+					@created_files.push chunk_path
+					bin_files.push chunk_path
+					File.open( chunk_path, 'w' ) do |file|
+						carve source_2, offset, @torrent_file_2.piece_length, file
 					end
 				end
 
