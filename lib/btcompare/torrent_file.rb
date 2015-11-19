@@ -19,6 +19,10 @@ module BTCompare
 		attr_reader :contains
 
 
+		# [Integer] Contains the length of a piece
+		attr_reader :piece_length
+
+
 		# @param filename [String] Path to torrent file
 		def initialize filename
 			@filename = filename
@@ -26,6 +30,7 @@ module BTCompare
 			@data = BEncode::load(File.open( filename, 'r' ))
 
 			@contains = @data['info']['name']
+			@piece_length = @data['info']['piece length']
 			@individual_pieces = nil
 		end
 
