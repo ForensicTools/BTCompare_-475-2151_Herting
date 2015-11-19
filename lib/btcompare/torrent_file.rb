@@ -45,6 +45,10 @@ module BTCompare
 		end
 
 
+		# Invalidates cached data
+		def invalidate_cache
+			@individual_pieces = nil
+		end
 	end
 end
 
