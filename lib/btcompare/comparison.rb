@@ -61,6 +61,7 @@ module BTCompare
 			end
 			@result.difference_ids = difference_ids
 
+			@result.lock
 			return @result
 		end
 

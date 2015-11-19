@@ -18,6 +18,14 @@ module BTCompare
 			@difference_ids = nil
 		end
 
+
+		# Locks instance variables for the object
+		def lock
+			self.instance_eval do 
+				undef :same_piece_count=
+				undef :difference_ids=
+			end
+		end
 	end
 end
 
