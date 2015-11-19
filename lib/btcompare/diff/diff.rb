@@ -36,6 +36,10 @@ module BTCompare
 			#   created.
 			def create_tmp_directory
 				path = "tmp.#{Random.new.rand(100000..999999)}"
+				while File.exists? path do 
+					path = "tmp.#{Random.new.rand(100000..999999)}"
+				end
+
 				Dir.mkdir path
 				return path
 			end
