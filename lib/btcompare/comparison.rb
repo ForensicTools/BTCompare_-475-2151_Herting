@@ -64,6 +64,11 @@ module BTCompare
 			return @result
 		end
 
+
+		# Invalidates cached data
+		def invalidate_cache
+			@result = nil
+		end
 	end
 end
 
