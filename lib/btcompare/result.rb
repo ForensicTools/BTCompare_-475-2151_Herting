@@ -57,7 +57,7 @@ module BTCompare
 		#   the givien result
 		# @return [Diff::Diff] The resulting diff
 		def diff type
-			unless diff_types.includes? type then
+			unless diff_types.include? type then
 				raise InvalidDiffType
 			end
 
