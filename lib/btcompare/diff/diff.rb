@@ -25,6 +25,7 @@ module BTCompare
 				@torrent_file_2 = torrent_file_2
 
 				@path = create_tmp_directory
+				@created_files = []
 			end
 
 
