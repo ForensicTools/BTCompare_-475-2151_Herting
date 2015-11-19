@@ -1,4 +1,5 @@
 
+
 module BTCompare
 
 	# Holds the result of a comparison. When Result is created its
