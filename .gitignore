@@ -4,3 +4,4 @@ example*
 .yardoc/
 doc/
 *.swp
+tmp.*
