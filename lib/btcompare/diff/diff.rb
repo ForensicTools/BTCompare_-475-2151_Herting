@@ -91,10 +91,10 @@ module BTCompare
 
 				# Hexdump
 				in_file.rewind
-				LINE_SIZE = 16
+				line_size = 16
 				internal_offset = 0
 				until in_file.eof? do
-					word = in_file.read LINE_SIZE
+					word = in_file.read line_size
 
 					hex = word.unpack "4H4H4H4H4H4H4H4H"
 
@@ -102,6 +102,7 @@ module BTCompare
 
 					line = [ internal_offset.to_s(16), hex, ascii ].flatten
 					out_file.printf "%7s: %4s %4s %4s %4s %4s %4s %4s %4s  %16s\n", line
+					internal_offset += line_size
 				end
 
 
