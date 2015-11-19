@@ -44,6 +44,8 @@ OptionParser.new do |opts|
 	end
 
 	opts.on '-h', '--help', "Show this help message" do |h|
+		puts "NOTICE: THIS PROGRAM IS A WORK IN PROGRESS. MANY".color( :red ).bg(:white)
+		puts "FEATURES HAVE YET TO BE IMPLIMENTED.".color(:red).bg(:white)
 		puts opts
 		exit
 	end
