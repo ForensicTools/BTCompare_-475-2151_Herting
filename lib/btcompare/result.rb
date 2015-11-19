@@ -1,5 +1,8 @@
 
-
+# Holds the result of a comparison. When Result is created its
+# variables are writable. It is strongly encouraged that developers
+# using this class run the method lock on the object as soon as
+# the data has been set in the object.
 module BTCompare
 	class Result
 
