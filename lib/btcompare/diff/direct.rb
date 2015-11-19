@@ -8,8 +8,10 @@ module BTCompare
 
 			# Creates a new Direct diff
 			# @param parent [BTCompare::Result] Parent of the diff
-			def initialize parent
-				super parent
+			# @param torrent_file_1 [BTCompare::TorrentFile] Torrent file 1
+			# @param torrent_file_2 [BTCompare::TorrentFile] Torrent file 2
+			def initialize parent, torrent_file_1, torrent_file_2
+				super parent, torrent_file_1, torrent_file_2
 
 			end
 
