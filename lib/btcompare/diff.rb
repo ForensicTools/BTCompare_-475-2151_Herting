@@ -1,5 +1,6 @@
 
 require_relative 'diff/diff.rb'
+require_relative 'diff/direct.rb'
 
 module BTCompare
 	
