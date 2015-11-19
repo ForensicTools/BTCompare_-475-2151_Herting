@@ -49,6 +49,18 @@ module BTCompare
 			end
 			return available
 		end
+
+
+		# Gets the byte offset for the pieces that are different.
+		# @return [Hash<Integer,Integer>] Piece id => offset within file
+		def offsets
+			to_return = {}
+			piece_length = @parent.file_1.piece_length
+			@difference_ids.each do |id|
+				to_return[id] = id * piece_length
+			end
+			return to_return
+		end
 	end
 end
 
