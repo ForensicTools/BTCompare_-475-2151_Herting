@@ -10,8 +10,15 @@ module BTCompare
 			attr_reader :path
 
 
+			# Parent result that created this Diff
+			attr_reader :parent
+
+
 			# Parent constructor. Causes a workspace to be created.
-			def initialize
+			# @param parent [BTCompare::Result] the Result object that
+			#   created this Diff
+			def initialize parent
+				@parent = parent
 				@path = create_tmp_directory
 			end
 
