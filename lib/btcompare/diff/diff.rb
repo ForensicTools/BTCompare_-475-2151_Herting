@@ -17,8 +17,13 @@ module BTCompare
 			# Parent constructor. Causes a workspace to be created.
 			# @param parent [BTCompare::Result] the Result object that
 			#   created this Diff
-			def initialize parent
+			# @param torrent_file_1 [BTCompare::TorrentFile] Torrent File 1
+			# @param torrent_file_2 [BTCompare::TorrentFile] Torrent File 2
+			def initialize parent, torrent_file_1, torrent_file_2
 				@parent = parent
+				@torrent_file_1 = torrent_file_1
+				@torrent_file_2 = torrent_file_2
+
 				@path = create_tmp_directory
 			end
 
