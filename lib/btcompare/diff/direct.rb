@@ -41,7 +41,7 @@ module BTCompare
 				bin_files = []
 
 				log.debug "Beginning bin carving"
-				@parent.offsets do |id, offset|
+				@parent.offsets.each do |id, offset|
 					chunk_path = File.join( @path, "1", "bin", id.to_s )
 					@created_files.push chunk_path
 					bin_files.push chunk_path
