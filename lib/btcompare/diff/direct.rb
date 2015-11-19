@@ -13,6 +13,14 @@ module BTCompare
 
 			end
 
+			private
+
+			# Processes the carving of the data
+			def process
+				@parent.offsets do |id, offset|
+
+				end
+			end
 		end
 	end
 end
