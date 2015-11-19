@@ -57,7 +57,7 @@ module BTCompare
 			# Hex dumps a binary file
 			# @param in_file [String,File] File the data is coming from
 			# @param out_file [String,File] File the hexdump is being written to
-			# @param metadata [Hash] Info for user comfort
+			# @param metadata [Hash<String, String>] Info for user comfort
 			# @raise [UnacceptableArgType] If an arg type is not acceptable 
 			def hexdump in_file, out_file, metadata=nil
 				# Opening in_file
