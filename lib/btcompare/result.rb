@@ -30,6 +30,21 @@ module BTCompare
 				undef :difference_ids=
 			end
 		end
+
+
+		# Lists available types of diffs available
+		# to use on these torrent files.
+		# @return [Array<Symbol>] :notAvailable If torrent files are
+		#   deemed too different to consider for diffing.
+		def diff_types
+			available = []
+
+
+			if available.empty? then
+				available.push :notAvailable
+			end
+			return available
+		end
 	end
 end
 
