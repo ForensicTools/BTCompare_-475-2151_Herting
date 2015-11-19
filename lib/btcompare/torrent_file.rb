@@ -15,12 +15,17 @@ module BTCompare
 		attr_reader :filename
 
 
+		# Contains the filenames of the contents of the torrent.
+		attr_reader :contains
+
+
 		# @param filename [String] Path to torrent file
 		def initialize filename
 			@filename = filename
 			
 			@data = BEncode::load(File.open( filename, 'r' ))
 
+			@contains = @data['info']['name']
 			@individual_pieces = nil
 		end
 
