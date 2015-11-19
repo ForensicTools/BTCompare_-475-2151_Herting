@@ -101,7 +101,18 @@ module BTCompare
 					ascii = word.gsub( /[[:cntrl:]]/ , '.' )
 
 					line = [ internal_offset.to_s(16), hex, ascii ].flatten
-					out_file.printf "%7s: %4s %4s %4s %4s %4s %4s %4s %4s  %16s\n", line
+					out_file.printf("%7s: %4s %4s %4s %4s %4s %4s %4s %4s  %16s\n", 
+													line[0],
+													line[1],
+													line[2],
+													line[3],
+													line[4],
+													line[5],
+													line[6],
+													line[7],
+													line[8],
+													line[9]
+												 )
 					internal_offset += line_size
 				end
 

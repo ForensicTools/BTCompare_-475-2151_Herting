@@ -80,7 +80,8 @@ module BTCompare
 			
 				log.debug "Converting to hexdump"	
 				bin_files.each do |bin_file|
-					hex_file = bin_file.split( File::SEPARATOR )[2] = "hex"
+					hex_file = bin_file.split( File::SEPARATOR )
+					hex_file[2] = "hex"
 					hex_file = File.join(hex_file)
 
 					hexdump bin_file, hex_file
