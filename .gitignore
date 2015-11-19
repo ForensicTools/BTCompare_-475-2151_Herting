@@ -3,3 +3,4 @@ test.rb
 example*
 .yardoc/
 doc/
+*.swp
