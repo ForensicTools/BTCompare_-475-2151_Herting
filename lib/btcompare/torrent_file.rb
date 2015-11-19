@@ -23,11 +23,25 @@ module BTCompare
 		attr_reader :piece_length
 
 
+		# Is this torrent file a multi file torrent
+		attr_reader :multi_file
+
+
 		# @param filename [String] Path to torrent file
+		# @raise [UnsupportedFeature] Multi file torrents are not supported 
+		#   yet. Come Back Later.
 		def initialize filename
 			@filename = filename
 			
 			@data = BEncode::load(File.open( filename, 'r' ))
+
+			if @data['info'].has_key? 'files' then
+				@multi_file = true
+				raise UnsupportedFeature
+				exit 1
+			else
+				@multi_file = false
+			end
 
 			@contains = @data['info']['name']
 			@piece_length = @data['info']['piece length']
