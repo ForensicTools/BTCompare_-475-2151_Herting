@@ -3,6 +3,8 @@
 require 'bencode'
 
 module BTCompare
+
+	# Holds data about an individual torrent file.
 	class TorrentFile
 
 		# Raw data created parsed from the torrent file
