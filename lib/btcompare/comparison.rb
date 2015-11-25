@@ -1,7 +1,16 @@
 
 
 module BTCompare
+
+	# Actor that runs a comparison on two different TorrentFiles.
 	class Comparison
+
+		# [TorrentFile] File 1 of the comparison
+		attr_reader :file_1
+
+
+		# [TorrentFile] File 2 of the comparison
+		attr_reader :file_2
 
 
 		# Creates a new comparison
@@ -61,9 +70,15 @@ module BTCompare
 			end
 			@result.difference_ids = difference_ids
 
+			@result.lock
 			return @result
 		end
 
+
+		# Invalidates cached data
+		def invalidate_cache
+			@result = nil
+		end
 	end
 end
 

@@ -1,5 +1,8 @@
 Gemfile.lock
-test.rb
+test*
 example*
 .yardoc/
 doc/
+*.swp
+tmp.*
+.yardopts
