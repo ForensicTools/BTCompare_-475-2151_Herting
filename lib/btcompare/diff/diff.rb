@@ -89,7 +89,7 @@ module BTCompare
 					end
 
 					out_file.puts
-					out_file.puts "-----------------"
+					out_file.puts "-" * 67
 					out_file.puts
 				end
 
