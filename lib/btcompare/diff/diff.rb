@@ -102,7 +102,7 @@ module BTCompare
 
 					hex = word.unpack "H4" * ( line_size / 2 )
 
-					ascii = word.gsub( /[[:cntrl:]]/ , '.' )
+					ascii = word.gsub( /[^\x20-\x7E]/ , '.' )
 
 					line = [ internal_offset.to_s(16), hex, ascii ].flatten
 					out_file.printf("%7s: %4s %4s %4s %4s %4s %4s %4s %4s  %16s\n", 
