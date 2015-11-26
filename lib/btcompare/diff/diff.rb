@@ -35,13 +35,20 @@ module BTCompare
 			# @return [String] Path for the directory
 			#   created.
 			def create_tmp_directory
-				path = "tmp.#{Random.new.rand(100000..999999)}"
+				path = random_name
 				while File.exists? path do 
-					path = "tmp.#{Random.new.rand(100000..999999)}"
+					path = random_name
 				end
 
 				Dir.mkdir path
 				return path
+			end
+
+
+			# Generates a random name for a file or directory
+			# @return [String] random name
+			def random_name
+				sprintf "tmp.%06d", Random.new.rand(0..999999)
 			end
 
 
