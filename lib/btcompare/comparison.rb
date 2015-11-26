@@ -16,7 +16,7 @@ module BTCompare
 		# Creates a new comparison
 		# @param tf1 [TorrentFile,String] First file for comparison
 		# @param tf2 [TorrentFile,String] Second file for comparison
-		# @raise [RuntimeError] if argument class is wrong
+		# @raise [UnaccaptableArgType] if argument class is wrong
 		def initialize tf1, tf2
 
 			@file_1 = nil
@@ -32,7 +32,7 @@ module BTCompare
 				@file_1 = tf1
 
 			else
-				raise "tf1 is wrong type of file"
+				raise UnacceptableArgType
 			end
 
 			
@@ -44,7 +44,7 @@ module BTCompare
 				@file_2 = tf2
 
 			else
-				raise "tf2 is wrong type of file"
+				raise UnaccaptableArgType
 			end
 		end
 
