@@ -70,7 +70,7 @@ module BTCompare
 
 					metadata[chunk_path] = {
 						"Filename" => @torrent_file_2.filename,
-						"Hash" => @torrent_file_2.individual_pieces[id]
+						"Hash" => @torrent_file_2.individual_pieces[id],
 						"Piece ID" => id,
 						"Offset" => offset
 					}
