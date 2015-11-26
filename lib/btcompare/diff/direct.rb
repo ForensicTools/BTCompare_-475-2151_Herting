@@ -50,7 +50,9 @@ module BTCompare
 
 					metadata[chunk_path] = {
 						"Filename" => @torrent_file_1.filename,
-						"Hash" => @torrent_file_1.individual_pieces[id]
+						"Hash" => @torrent_file_1.individual_pieces[id],
+						"Piece ID" => id,
+						"Offset" => offset
 					}
 
 					File.open( chunk_path, 'w' ) do |file|
@@ -69,6 +71,8 @@ module BTCompare
 					metadata[chunk_path] = {
 						"Filename" => @torrent_file_2.filename,
 						"Hash" => @torrent_file_2.individual_pieces[id]
+						"Piece ID" => id,
+						"Offset" => offset
 					}
 
 					File.open( chunk_path, 'w' ) do |file|
