@@ -31,6 +31,18 @@ module BTCompare
 					@workers.push workerConnection
 				end
 			end
+
+
+			# Close down the server
+			def close
+				@workers.each do |x|
+					x.close
+					@workers.delete x
+				end
+
+				@server.close
+				@server = nil
+			end
 		end
 	end
 end
