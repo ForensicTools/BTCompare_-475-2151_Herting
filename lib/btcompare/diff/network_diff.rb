@@ -12,9 +12,38 @@ module BTCompare
 			# @param [Integer] offset Starting offset
 			# @param [Integer] length Length of chunk
 			# @param [File, String] out_file File data is going to
-			# @todo Write method
+			# @todo raise unacceptableargtype
 			def carve in_file, offset, length, out_file
-				return false
+				case in_file
+				when File
+					in_file = in_file.path
+				when String
+				else
+				end
+
+				case out_file
+				when File
+					out_file = out_file.path
+				when String
+				else
+				end
+
+				job = {
+					"method" => [
+						'BTCompare',
+						'Diff',
+						'Diff',
+						'carve'
+					],
+					"args" => {
+						"in_file" => in_file,
+						"offset" => offset,
+						"length" => length,
+						"out_file" => outfile
+					}
+				}
+
+				@master.enqueue job
 			end
 
 
