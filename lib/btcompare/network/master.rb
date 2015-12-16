@@ -1,5 +1,6 @@
 
 require 'socket'
+require 'thread'
 
 module BTCompare
 	module Network
@@ -18,15 +19,17 @@ module BTCompare
 
 				# Define default instance variables
 				@workers = []
+				@queue = Queue.new
 
 				# Open server
 				@server = TCPServer.open opts[:port]
 
+				# Create thread to accept connections
 				Thread.start do 
 					client = @server.accept
+					workerConnection = WorkerConnection.new self, client
+					@workers.push workerConnection
 				end
-
-
 			end
 		end
 	end
