@@ -8,10 +8,10 @@ module BTCompare
 		module NetworkDiff
 
 			# Creates a carve job in the master's job queue.
-			# @param [File] in_file File data is coming from
+			# @param [File, String] in_file File data is coming from
 			# @param [Integer] offset Starting offset
 			# @param [Integer] length Length of chunk
-			# @param [File] out_file File data is going to
+			# @param [File, String] out_file File data is going to
 			# @todo Write method
 			def carve in_file, offset, length, out_file
 				return false
