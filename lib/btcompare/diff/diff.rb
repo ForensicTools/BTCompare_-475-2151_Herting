@@ -31,7 +31,8 @@ module BTCompare
 
 			# Networkize the diff
 			# @param [BTCompare::Network::Master] master Master object
-			def networkize
+			def networkize master
+				@master = master
 				include NetworkDiff
 			end
 
