@@ -66,10 +66,43 @@ module BTCompare
 			# @param length [Integer] Length of chunk
 			# @param out_file [File] File data is going to
 			# @return [Boolean] If length == number of bytes written
+			# @raise [UnacceptableArgType] If an arg type is not acceptable 
 			def carve in_file, offset, length, out_file
+				close_in_file = false
+				close_out_file = false
+				# Opening in_file 
+				case in_file
+				when String
+					in_file = File.open in_file, 'rb'
+					close_in_file = true
+				when File
+				else
+					raise UnacceptableArgType
+				end
+
+				# Opening out_file
+				case out_file
+				when String
+					out_file = File.open out_file, 'w'
+					close_out_file = true
+				when File
+				else
+					raise UnacceptableArgType
+				end
+
 				in_file.seek offset, :SET
 				block = in_file.read length
-				length == out_file.write( block )
+				to_return = length == out_file.write( block )
+
+				if close_in_file then
+					in_file.close
+				end
+
+				if close_out_file then
+					out_file.close
+				end
+
+				return to_return
 			end
 
 
