@@ -17,6 +17,15 @@ module BTCompare
 				return false
 			end
 
+
+			# Creates a Hex dump job in the master's job queue.
+			# @param in_file [String, File] File data is coming from
+			# @param out_file [String, File] File data is going to
+			# @param metadata [Hash<String, String>] Info for user comfort
+			# @todo Write method
+			def carve in_file, out_file, metadata
+				false
+			end
 		end
 	end
 end
