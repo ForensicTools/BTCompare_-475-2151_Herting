@@ -61,10 +61,10 @@ module BTCompare
 
 
 			# Carves out a chunk of a file.
-			# @param in_file [File] File data is coming from
+			# @param in_file [File, String] File data is coming from
 			# @param offset [Integer] Starting offset
 			# @param length [Integer] Length of chunk
-			# @param out_file [File] File data is going to
+			# @param out_file [File, String] File data is going to
 			# @return [Boolean] If length == number of bytes written
 			# @raise [UnacceptableArgType] If an arg type is not acceptable 
 			def carve in_file, offset, length, out_file
