@@ -16,6 +16,16 @@ module BTCompare
 
 				end
 			end
+
+
+			# Closes down the connection to the worker
+			def close
+				@thread.stop
+				@thread = nil
+
+				@socket.close
+				@socket = nil
+			end
 		end
 	end
 end
