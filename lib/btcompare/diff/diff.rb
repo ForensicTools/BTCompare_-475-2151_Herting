@@ -29,6 +29,13 @@ module BTCompare
 			end
 
 
+			# Networkize the diff
+			# @param [BTCompare::Network::Master] master Master object
+			def networkize
+				include NetworkDiff
+			end
+
+
 			private
 
 			# Creates a temporary directory for storing diffs
