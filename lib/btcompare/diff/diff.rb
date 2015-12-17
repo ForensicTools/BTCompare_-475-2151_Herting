@@ -153,7 +153,7 @@ module BTCompare
 					ascii = word.gsub( /[^\x20-\x7E]/ , '.' )
 
 					line = [ internal_offset.to_s(16), hex, ascii ].flatten
-					out_file.printf("%5s: %4s %4s %4s %4s %4s %4s %4s %4s  %16s\n", 
+					out_file.printf("%5s: %4s %4s %4s %4s %4s %4s %4s %4s %16s\n", 
 													line[0],
 													line[1],
 													line[2],
