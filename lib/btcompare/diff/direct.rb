@@ -39,12 +39,22 @@ module BTCompare
 				Dir.mkdir( File.join( @path, '2', 'bin' ))
 
 				bin_files = []
+				metadata = {}
 
 				log.debug "Beginning bin carving"
 				@parent.offsets.each do |id, offset|
+					# File 1
 					chunk_path = File.join( @path, "1", "bin", id.to_s )
 					@created_files.push chunk_path
 					bin_files.push chunk_path
+
+					metadata[chunk_path] = {
+						"Filename" => @torrent_file_1.filename,
+						"Hash" => @torrent_file_1.individual_pieces[id],
+						"Piece ID" => id,
+						"Offset" => offset
+					}
+
 					File.open( chunk_path, 'w' ) do |file|
 						if carve( source_1, offset, @torrent_file_1.piece_length, file ) then
 							log.debug "Wrote #{offset} to #{chunk_path}"
@@ -53,9 +63,18 @@ module BTCompare
 						end
 					end
 
+					# File 2
 					chunk_path = File.join( @path, "2", "bin", id.to_s )
 					@created_files.push chunk_path
 					bin_files.push chunk_path
+
+					metadata[chunk_path] = {
+						"Filename" => @torrent_file_2.filename,
+						"Hash" => @torrent_file_2.individual_pieces[id],
+						"Piece ID" => id,
+						"Offset" => offset
+					}
+
 					File.open( chunk_path, 'w' ) do |file|
 						if carve( source_2, offset, @torrent_file_2.piece_length, file ) then
 							log.debug "Wrote #{offset} to #{chunk_path}"
@@ -84,7 +103,7 @@ module BTCompare
 					hex_file[2] = "hex"
 					hex_file = File.join(hex_file)
 
-					hexdump bin_file, hex_file
+					hexdump bin_file, hex_file, metadata[bin_file]
 				end
 				log.debug "Hexdump finished"
 

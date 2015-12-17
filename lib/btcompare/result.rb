@@ -24,7 +24,8 @@ module BTCompare
 		end
 
 
-		# Locks instance variables for the object
+		# Locks instance variables for the object.
+		# Specifically, undefs attr_writers.
 		def lock
 			self.instance_eval do 
 				undef :same_piece_count=
